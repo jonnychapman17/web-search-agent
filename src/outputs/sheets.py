@@ -9,10 +9,10 @@ from src.core.settings import Settings
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 try:
-    from google.oauth2.service_account import Credentials
+    from google.auth import load_credentials_from_file
     from googleapiclient.discovery import build
 except ImportError:  # pragma: no cover - handled at runtime when dependencies are missing
-    Credentials = None
+    load_credentials_from_file = None
     build = None
 
 
@@ -22,14 +22,14 @@ class GoogleSheetsClient:
         self._service = None
 
     def _get_service(self):
-        if Credentials is None or build is None:
+        if load_credentials_from_file is None or build is None:
             raise RuntimeError(
                 "Google Sheets dependencies are not installed. "
                 "Install project dependencies before running with live Sheets writes."
             )
         if self._service is None:
-            credentials = Credentials.from_service_account_file(
-                Path(self.settings.service_account_file),
+            credentials, _ = load_credentials_from_file(
+                filename=str(Path(self.settings.service_account_file)),
                 scopes=SCOPES,
             )
             self._service = build("sheets", "v4", credentials=credentials, cache_discovery=False)
