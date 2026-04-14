@@ -1,0 +1,204 @@
+version: 1
+
+sources:
+  - source_name: GOV.UK Housing Guidance
+    base_url: https://www.gov.uk/
+    source_type: official_guidance
+    jurisdiction: England
+    audience: official
+    access_method: search_and_page_fetch
+    seed_urls:
+      - https://www.gov.uk/guidance/renting-out-your-property-guidance-for-landlords-and-letting-agents
+      - https://www.gov.uk/guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance
+      - https://www.gov.uk/search/all?keywords=landlord+tenant+private+rented+guidance&order=updated-newest
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - renting
+      - rented
+      - rent
+      - eviction
+      - possession
+      - epc
+      - deposit
+      - licensing
+      - housing
+    max_items: 20
+    status: approved
+    active: true
+    notes: Core England official guidance source.
+
+  - source_name: GOV.WALES Housing Guidance
+    base_url: https://www.gov.wales/
+    source_type: official_guidance
+    jurisdiction: Wales
+    audience: official
+    access_method: search_and_page_fetch
+    seed_urls:
+      - https://www.gov.wales/renting-homes-landlords
+      - https://www.gov.wales/search?keywords=renting+homes+landlord+tenant
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - renting
+      - rented
+      - rent
+      - eviction
+      - possession
+      - deposit
+      - housing
+      - notice
+      - repairs
+    max_items: 20
+    status: approved
+    active: true
+    notes: Core Wales official guidance source.
+
+  - source_name: Rent Smart Wales
+    base_url: https://rentsmart.gov.wales/
+    source_type: official_guidance
+    jurisdiction: Wales
+    audience: official
+    access_method: page_fetch
+    seed_urls:
+      - https://rentsmart.gov.wales/en/landlord/
+      - https://rentsmart.gov.wales/en/agent/
+    include_keywords:
+      - landlord
+      - tenant
+      - renting
+      - licence
+      - licensed
+      - training
+      - compliance
+      - tenancy
+    max_items: 15
+    status: approved
+    active: true
+    notes: Wales landlord licensing and compliance source.
+
+  - source_name: OpenRent Community
+    base_url: https://community.openrent.co.uk/
+    source_type: forum
+    jurisdiction: England and Wales
+    audience: landlord
+    access_method: public_page_fetch
+    seed_urls:
+      - https://community.openrent.co.uk/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - rent
+      - repairs
+      - deposit
+      - possession
+      - compliance
+      - pets
+    max_items: 20
+    status: approved
+    active: true
+    notes: Public landlord discussion community.
+
+  - source_name: LandlordZONE
+    base_url: https://www.landlordzone.co.uk/
+    source_type: forum_or_publisher
+    jurisdiction: England and Wales
+    audience: landlord
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.landlordzone.co.uk/news/
+      - https://www.landlordzone.co.uk/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - possession
+      - rent
+      - repairs
+      - deposit
+      - hmo
+      - licensing
+      - epc
+    max_items: 20
+    status: approved
+    active: true
+    notes: Landlord news and discussion signal.
+
+  - source_name: UK Landlord Forum
+    base_url: https://www.landlordforumproject.co.uk/
+    source_type: forum
+    jurisdiction: England and Wales
+    audience: landlord
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.landlordforumproject.co.uk/index.php
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - possession
+      - rent
+      - repairs
+      - deposit
+      - compliance
+      - section 8
+      - section 21
+    max_items: 20
+    status: approved
+    active: true
+    notes: Public landlord forum source.
+
+  - source_name: Reddit HousingUK
+    base_url: https://www.reddit.com/r/HousingUK/
+    source_type: social_forum
+    jurisdiction: England and Wales
+    audience: tenant
+    access_method: api_or_public_page_fetch
+    seed_urls:
+      - https://www.reddit.com/r/HousingUK/new/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - rent
+      - repairs
+      - deposit
+      - affordability
+      - notice
+      - mould
+      - damp
+    max_items: 20
+    status: approved
+    active: true
+    notes: Tenant and general housing concern signal.
+
+  - source_name: Reddit LegalAdviceUK
+    base_url: https://www.reddit.com/r/LegalAdviceUK/
+    source_type: social_forum
+    jurisdiction: England and Wales
+    audience: tenant
+    access_method: api_or_public_page_fetch
+    seed_urls:
+      - https://www.reddit.com/r/LegalAdviceUK/new/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - rent
+      - repairs
+      - deposit
+      - possession
+      - notice
+      - housing
+    max_items: 20
+    status: approved
+    active: true
+    notes: Legal housing questions can surface tenant concerns.

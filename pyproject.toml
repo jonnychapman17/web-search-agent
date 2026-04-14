@@ -1,0 +1,20 @@
+[project]
+name = "landlord-tenant-search-agent"
+version = "0.1.0"
+description = "Weekly landlord and tenant search agent for England and Wales."
+requires-python = ">=3.9"
+dependencies = [
+  "google-api-python-client>=2.170.0",
+  "google-auth>=2.40.0",
+  "PyYAML>=6.0.2",
+  "python-dotenv>=1.1.0",
+  "requests>=2.32.3",
+  "beautifulsoup4>=4.13.4",
+]
+
+[project.scripts]
+landlord-tenant-agent = "src.main:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

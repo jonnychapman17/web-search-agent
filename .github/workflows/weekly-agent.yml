@@ -1,0 +1,53 @@
+name: Weekly Landlord Tenant Agent
+
+on:
+  schedule:
+    - cron: "0 7 * * 5"
+  workflow_dispatch:
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      TZ: Europe/London
+      AGENT_DRY_RUN: "false"
+      GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
+      GOOGLE_SHEETS_MAIN_RANGE: ${{ secrets.GOOGLE_SHEETS_MAIN_RANGE }}
+      AGENT_TIMEZONE: Europe/London
+      AGENT_SCHEDULE_DAY: FR
+      AGENT_SCHEDULE_HOUR: "8"
+      AGENT_LOOKBACK_DAYS: "10"
+      AGENT_RELEVANCE_THRESHOLD: "40"
+      DISCOVERY_ENABLED: "true"
+      DISCOVERY_MAX_NEW_SOURCES_PER_RUN: "25"
+      REDDIT_ACCESS_MODE: public_page
+      LOG_LEVEL: INFO
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - id: auth
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          create_credentials_file: true
+          workload_identity_provider: ${{ secrets.GOOGLE_WIF_PROVIDER }}
+          service_account: ${{ secrets.GOOGLE_WIF_SERVICE_ACCOUNT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install .
+        working-directory: .
+
+      - name: Run agent
+        run: python src/main.py
+        working-directory: .
+        env:
+          GOOGLE_SERVICE_ACCOUNT_FILE: ${{ steps.auth.outputs.credentials_file_path }}
