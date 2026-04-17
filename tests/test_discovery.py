@@ -15,6 +15,8 @@ def _finding(url: str) -> Finding:
         title="Interesting external link",
         url=url,
         published_date="",
+        updated_date="",
+        resource_date_type="",
         discovered_date="2026-04-14",
         summary="summary",
         why_relevant="relevant",

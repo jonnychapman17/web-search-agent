@@ -9,7 +9,7 @@
 
 ## Recommended Values
 
-- `GOOGLE_SHEETS_MAIN_RANGE=2026!A:AB`
+- `GOOGLE_SHEETS_MAIN_RANGE=2026!A:AF`
 
 ## Notes
 

@@ -15,6 +15,7 @@ from src.core.models import Finding, RunLog
 from src.core.settings import load_settings
 from src.core.time_utils import now_in_timezone
 from src.pipeline.classify import classify_jurisdiction, infer_audience, infer_category, infer_theme
+from src.pipeline.dates import choose_resource_date, is_fresh_enough
 from src.pipeline.dedupe import build_duplicate_key, filter_new_findings
 from src.pipeline.discovery import build_source_candidates, filter_new_source_candidates
 from src.pipeline.scoring import score_relevance
@@ -52,6 +53,12 @@ def main() -> None:
     findings = [
         _to_finding(raw_item, run_date=run_date, run_timestamp=run_timestamp)
         for raw_item in raw_items
+        if is_fresh_enough(
+            raw_item.source_type,
+            choose_resource_date(raw_item.published_date, raw_item.updated_date)[0],
+            run_now.date(),
+            settings.lookback_days,
+        )
     ]
 
     sheets_client = None
@@ -115,9 +122,10 @@ def _to_finding(raw_item, *, run_date: str, run_timestamp: str) -> Finding:
     category = infer_category(audience)
     jurisdiction = classify_jurisdiction(f"{raw_item.title} {raw_item.text}")
     theme = infer_theme(f"{raw_item.title} {raw_item.text}")
+    resource_date, resource_date_type = choose_resource_date(raw_item.published_date, raw_item.updated_date)
     priority_score = score_relevance(
         source_authority=30 if audience == "official" else 18,
-        recency=20 if raw_item.published_date else 12,
+        recency=20 if resource_date else 8,
         direct_relevance=20,
         novelty=10,
         discussion_signal=5 if audience == "official" else 12,
@@ -140,11 +148,13 @@ def _to_finding(raw_item, *, run_date: str, run_timestamp: str) -> Finding:
         title=raw_item.title,
         url=raw_item.url,
         published_date=raw_item.published_date,
+        updated_date=raw_item.updated_date,
+        resource_date_type=resource_date_type,
         discovered_date=raw_item.discovered_date,
         summary=raw_item.notes or raw_item.title,
         why_relevant=(
             f"Captured from {raw_item.source_name} during the weekly monitoring run "
-            f"and tagged as {category}."
+            f"and tagged as {category}. Resource date source: {resource_date_type or 'unknown'}."
         ),
         confidence=0.95 if audience == "official" else 0.75,
         priority_score=priority_score,

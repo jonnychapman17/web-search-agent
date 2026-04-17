@@ -15,6 +15,8 @@ UNIFIED_HEADERS = [
     "title",
     "url",
     "published_date",
+    "updated_date",
+    "resource_date_type",
     "discovered_date",
     "summary",
     "why_relevant",
@@ -25,6 +27,8 @@ UNIFIED_HEADERS = [
     "status",
     "active",
     "notes",
+    "review_relevant",
+    "review_reason",
     "sources_checked",
     "items_fetched",
     "items_relevant",
@@ -51,6 +55,8 @@ class Finding:
     title: str
     url: str
     published_date: str
+    updated_date: str
+    resource_date_type: str
     discovered_date: str
     summary: str
     why_relevant: str
@@ -73,6 +79,8 @@ class Finding:
                 "title": self.title,
                 "url": self.url,
                 "published_date": self.published_date,
+                "updated_date": self.updated_date,
+                "resource_date_type": self.resource_date_type,
                 "discovered_date": self.discovered_date,
                 "summary": self.summary,
                 "why_relevant": self.why_relevant,

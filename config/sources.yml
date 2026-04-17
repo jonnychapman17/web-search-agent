@@ -76,8 +76,8 @@ sources:
       - tenancy
     max_items: 15
     status: approved
-    active: true
-    notes: Wales landlord licensing and compliance source.
+    active: false
+    notes: Disabled temporarily due to unstable responses and poor signal quality.
 
   - source_name: OpenRent Community
     base_url: https://community.openrent.co.uk/
@@ -176,8 +176,8 @@ sources:
       - damp
     max_items: 20
     status: approved
-    active: true
-    notes: Tenant and general housing concern signal.
+    active: false
+    notes: Disabled temporarily due to public-page blocking on GitHub Actions.
 
   - source_name: Reddit LegalAdviceUK
     base_url: https://www.reddit.com/r/LegalAdviceUK/
@@ -200,5 +200,111 @@ sources:
       - housing
     max_items: 20
     status: approved
+    active: false
+    notes: Disabled temporarily due to public-page blocking on GitHub Actions.
+
+  - source_name: SO Legal Blog
+    base_url: https://www.solegal.co.uk/
+    source_type: legal_blog
+    jurisdiction: England
+    audience: official
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.solegal.co.uk/services/landlord-advice-tenant-eviction
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - possession
+      - section 8
+      - section 21
+    max_items: 15
+    status: approved
     active: true
-    notes: Legal housing questions can surface tenant concerns.
+    notes: Regulated solicitor firm commentary on residential landlord and tenant law.
+
+  - source_name: PRH Solicitors Blog
+    base_url: https://www.prhsolicitors.co.uk/
+    source_type: legal_blog
+    jurisdiction: England and Wales
+    audience: official
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.prhsolicitors.co.uk/personal/prh-blog/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - possession
+      - section 8
+      - section 21
+      - rent arrears
+    max_items: 15
+    status: approved
+    active: true
+    notes: Regulated solicitor firm blog with residential landlord updates.
+
+  - source_name: Glanvilles Damant Blog
+    base_url: https://www.gdlegalservices.co.uk/
+    source_type: legal_blog
+    jurisdiction: England and Wales
+    audience: official
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.gdlegalservices.co.uk/site/blog/landlord-tenant/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - eviction
+      - possession
+      - section 21
+      - disrepair
+    max_items: 15
+    status: approved
+    active: true
+    notes: Regulated solicitor firm landlord and tenant blog.
+
+  - source_name: Allington Hughes Landlord and Tenant
+    base_url: https://allingtonhughes.co.uk/
+    source_type: legal_blog
+    jurisdiction: England and Wales
+    audience: official
+    access_method: public_page_fetch
+    seed_urls:
+      - https://allingtonhughes.co.uk/landlord-and-tenant/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - occupation contract
+      - eviction
+      - possession
+      - wales
+    max_items: 15
+    status: approved
+    active: true
+    notes: Regulated solicitor firm with England and Wales landlord and tenant content.
+
+  - source_name: Talbots Law Landlord Disputes
+    base_url: https://www.talbotslaw.co.uk/
+    source_type: legal_blog
+    jurisdiction: England
+    audience: official
+    access_method: public_page_fetch
+    seed_urls:
+      - https://www.talbotslaw.co.uk/site/for-you/landlord-disputes/
+    include_keywords:
+      - landlord
+      - tenant
+      - tenancy
+      - possession
+      - disputes
+      - eviction
+      - rent
+    max_items: 15
+    status: approved
+    active: true
+    notes: Regulated solicitor firm landlord and tenant disputes page.

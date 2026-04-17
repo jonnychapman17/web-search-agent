@@ -39,7 +39,7 @@ def load_settings() -> Settings:
     return Settings(
         spreadsheet_id=os.getenv("GOOGLE_SHEETS_SPREADSHEET_ID", ""),
         service_account_file=os.getenv("GOOGLE_SERVICE_ACCOUNT_FILE", ""),
-        main_range=os.getenv("GOOGLE_SHEETS_MAIN_RANGE", "Sheet1!A:AB"),
+        main_range=os.getenv("GOOGLE_SHEETS_MAIN_RANGE", "Sheet1!A:AF"),
         timezone=os.getenv("AGENT_TIMEZONE", "Europe/London"),
         schedule_day=os.getenv("AGENT_SCHEDULE_DAY", "FR"),
         schedule_hour=int(os.getenv("AGENT_SCHEDULE_HOUR", "8")),

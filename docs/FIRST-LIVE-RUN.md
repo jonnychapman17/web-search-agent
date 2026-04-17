@@ -8,19 +8,19 @@ Open the Google Sheet and check the single tab name.
 
 Use:
 
-- `Sheet1!A:AB` if the tab is named `Sheet1`
-- `<YourTabName>!A:AB` if the tab has a different name
+- `Sheet1!A:AF` if the tab is named `Sheet1`
+- `<YourTabName>!A:AF` if the tab has a different name
 
 Example:
 
-- `Monitoring!A:AB`
+- `Monitoring!A:AF`
 
 ## 2. Paste the Header Row
 
 Paste this into row 1 of the single tab:
 
 ```text
-record_type,run_date,run_timestamp,jurisdiction,audience,category,theme,source_name,source_type,title,url,published_date,discovered_date,summary,why_relevant,confidence,priority_score,duplicate_key,access_method,status,active,notes,sources_checked,items_fetched,items_relevant,items_written,new_sources_written,errors
+record_type,run_date,run_timestamp,jurisdiction,audience,category,theme,source_name,source_type,title,url,published_date,updated_date,resource_date_type,discovered_date,summary,why_relevant,confidence,priority_score,duplicate_key,access_method,status,active,notes,review_relevant,review_reason,sources_checked,items_fetched,items_relevant,items_written,new_sources_written,errors
 ```
 
 ## 3. Configure Google Auth
@@ -53,7 +53,7 @@ In the GitHub repo settings, add:
 Suggested values:
 
 - `GOOGLE_SHEETS_SPREADSHEET_ID=1HyR3YYtmWRmhj7uPklfEVSrV_D7C405DHF7TnzSCryQ`
-- `GOOGLE_SHEETS_MAIN_RANGE=Sheet1!A:AB`
+- `GOOGLE_SHEETS_MAIN_RANGE=2026!A:AF`
 - `GOOGLE_WIF_SERVICE_ACCOUNT=web-search-agent@web-search-agent-493311.iam.gserviceaccount.com`
 
 ## 6. Manual Workflow Run

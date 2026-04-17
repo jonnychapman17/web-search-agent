@@ -27,4 +27,4 @@ def test_extract_relevant_links_filters_by_keyword_and_extracts_date() -> None:
     assert len(items) == 1
     assert items[0].url == "https://example.com/guidance/new-epc-rules"
     assert items[0].published_date == "2026-04-10"
-
+    assert items[0].updated_date == ""

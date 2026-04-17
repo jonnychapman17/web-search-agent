@@ -21,6 +21,7 @@ class StaticRegistryCollector:
                     title=f"Collector placeholder for {source['source_name']}",
                     url=source["base_url"],
                     published_date="",
+                    updated_date="",
                     discovered_date=discovered_date,
                     text=source.get("notes", ""),
                     notes="Placeholder item generated during scaffold phase.",

@@ -31,6 +31,7 @@ class CommunityCollector:
                         title=link.title,
                         url=link.url,
                         published_date=link.published_date,
+                        updated_date=link.updated_date,
                         discovered_date=discovered_date,
                         text=link.text,
                         notes=f"Captured from {source['source_name']} community page {seed_url}.",

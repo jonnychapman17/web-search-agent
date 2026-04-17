@@ -15,6 +15,8 @@ def _finding(category: str, theme: str, title: str) -> Finding:
         title=title,
         url="https://example.com",
         published_date="2026-04-10",
+        updated_date="2026-04-11",
+        resource_date_type="updated",
         discovered_date="2026-04-14",
         summary="summary",
         why_relevant="relevant",

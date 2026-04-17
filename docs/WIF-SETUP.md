@@ -82,7 +82,7 @@ For your setup:
 
 ```text
 GOOGLE_SHEETS_SPREADSHEET_ID=1HyR3YYtmWRmhj7uPklfEVSrV_D7C405DHF7TnzSCryQ
-GOOGLE_SHEETS_MAIN_RANGE=2026!A:AB
+GOOGLE_SHEETS_MAIN_RANGE=2026!A:AF
 GOOGLE_WIF_SERVICE_ACCOUNT=web-search-agent@web-search-agent-493311.iam.gserviceaccount.com
 ```
 

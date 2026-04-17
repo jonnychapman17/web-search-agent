@@ -15,7 +15,7 @@ Recommended tab name:
 Paste this header row into row 1:
 
 ```text
-record_type,run_date,run_timestamp,jurisdiction,audience,category,theme,source_name,source_type,title,url,published_date,discovered_date,summary,why_relevant,confidence,priority_score,duplicate_key,access_method,status,active,notes,sources_checked,items_fetched,items_relevant,items_written,new_sources_written,errors
+record_type,run_date,run_timestamp,jurisdiction,audience,category,theme,source_name,source_type,title,url,published_date,updated_date,resource_date_type,discovered_date,summary,why_relevant,confidence,priority_score,duplicate_key,access_method,status,active,notes,review_relevant,review_reason,sources_checked,items_fetched,items_relevant,items_written,new_sources_written,errors
 ```
 
 `record_type` values used by the agent:
@@ -48,7 +48,7 @@ Set these values in your runtime or GitHub repository secrets:
 
 Suggested ranges:
 
-- `Sheet1!A:AB`
+- `2026!A:AF`
 
 ## First Live Test
 

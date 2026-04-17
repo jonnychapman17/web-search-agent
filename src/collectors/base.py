@@ -11,6 +11,7 @@ class RawItem:
     title: str
     url: str
     published_date: str
+    updated_date: str
     discovered_date: str
     text: str
     notes: str = ""
